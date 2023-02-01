@@ -1,3 +1,4 @@
+using DatingApp.API.Data;
 using DatingApp.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer("Server=(localdb)\\MSSQLlocalDB;Database=DatingApp.db;Trusted_Connection=True;"));
 builder.Services.AddCors();
 // builder.Services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 var app = builder.Build();
 
