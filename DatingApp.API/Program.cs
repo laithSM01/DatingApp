@@ -57,6 +57,9 @@ internal class Program
                 };
             });
 
+        var cloudinarySettings = new CloudinarySettings();
+        builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+
         builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
         var app = builder.Build();
 
@@ -96,8 +99,8 @@ internal class Program
             seeder.SeedUsers();
         }
         
-        app.UseCors(x =>
-        x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+        app.UseCors(x => x.WithOrigins("http://localhost:5000")
+                .AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 
         app.UseAuthentication();
         app.UseAuthorization();
