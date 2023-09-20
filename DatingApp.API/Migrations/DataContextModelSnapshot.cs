@@ -53,7 +53,7 @@ namespace DatingApp.API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Photos");
+                    b.ToTable("Photos", (string)null);
                 });
 
             modelBuilder.Entity("DatingApp.API.Models.User", b =>
@@ -109,7 +109,7 @@ namespace DatingApp.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("DatingApp.API.Models.Value", b =>
@@ -126,7 +126,7 @@ namespace DatingApp.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Values");
+                    b.ToTable("Values", (string)null);
                 });
 
             modelBuilder.Entity("DatingApp.API.Models.Photo", b =>
